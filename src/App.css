@@ -19,6 +19,12 @@ p {
   box-sizing: border-box;
 }
 
+.switch-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .feature-display-out-container {
   padding-top: 2rem;
 }
@@ -67,4 +73,8 @@ p {
   border-radius: 5px;
   margin-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.titleAstartes {
+  color: lightgreen;
 }

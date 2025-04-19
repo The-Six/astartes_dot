@@ -18,6 +18,7 @@ function App() {
   const [onchainData, setOnchainData] = useState([]);
   const [offchainData, setOffchainData] = useState([]);
   const [verifyClicked, setVerifyClicked] = useState(false);
+  const [isVerifier, setIsVerifier] = useState(true);
   const [randomNumArray, setRandomNumArray] = useState([]);
   // const [originalRootHash, setOriginalRootHash] = useState("");
 
@@ -126,7 +127,18 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+      <button
+        className="switch-button"
+        onClick={() => setIsVerifier(!isVerifier)}
+      >
+        {isVerifier ? "Switch to Server C" : "Switch to Server A & B"}
+      </button>
+      <div style={isVerifier ? { display: "block" } : { display: "none" }}>
+        <h1>
+          <span className="titleAstartes">ASTARTES</span>.DOT
+        </h1>
+      </div>
+      <div style={isVerifier ? { display: "none" } : { display: "block" }}>
         <div className="server-charlie-container">
           <div>
             <h2>Server C &#40;Verifier&#41;</h2>
