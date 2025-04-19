@@ -7,7 +7,7 @@
 <p align="center" style="display: flex; justify-content: center; align-items: center;">
     <span style="display: inline-flex; align-items: center; background-color: #fff; padding: 5px; border-radius: 6px;">
         <a href="https://polkadot.com/">
-            <img src="./src/assets/polkadot-logo.png" alt="Polkadot" style="height: 40px;"/>
+            <img src="./src/assets/polkadot-logo.png" alt="Polkadot" style="height: 25px;"/>
         </a>
     </span>
 </p>
