@@ -63,6 +63,28 @@ p {
   padding-bottom: 2rem;
 }
 
+.submit-log-hash-outer-container {
+  /* border: 1px solid #ccc; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 3rem;
+}
+
+.submit-log-hash-container,
+.submit-log-hash-container2 {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  width: 45%;
+  min-width: 800px;
+}
+
 .server-charlie-container {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -73,6 +95,18 @@ p {
   border-radius: 5px;
   margin-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.fa-down-long {
+  font-size: 2rem;
+  color: lightgreen;
+  margin-bottom: 1rem;
+}
+
+.submit-outer-container {
+  /* border: 1px solid #ccc; */
+  display: flex;
+  justify-content: center;
 }
 
 .titleAstartes {

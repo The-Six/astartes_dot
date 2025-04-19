@@ -6,6 +6,7 @@ import VerifyLog from "./components/VerifyLog";
 import OnChainDisplay from "./components/OnChainDisplay";
 import OffChainDisplay from "./components/OffChainDisplay";
 import RetrieveEvents from "./components/RetrieveEvents";
+import SubmitLogHash from "./components/SubmitLogHash";
 import {
   connectToBlockchain,
   initializeContract,
@@ -20,7 +21,7 @@ function App() {
   const [verifyClicked, setVerifyClicked] = useState(false);
   const [isVerifier, setIsVerifier] = useState(true);
   const [randomNumArray, setRandomNumArray] = useState([]);
-  // const [originalRootHash, setOriginalRootHash] = useState("");
+  const [originalRootHash, setOriginalRootHash] = useState("");
 
   useEffect(() => {
     const setup = async () => {
@@ -137,6 +138,9 @@ function App() {
         <h1>
           <span className="titleAstartes">ASTARTES</span>.DOT
         </h1>
+        <div className="submit-outer-container">
+          <SubmitLogHash originalRootHash={originalRootHash} />
+        </div>
       </div>
       <div style={isVerifier ? { display: "none" } : { display: "block" }}>
         <div className="server-charlie-container">
@@ -160,7 +164,7 @@ function App() {
           </div>
         </div>
         <div className="merkle-tree-container">
-          <TamperSimulator2 />
+          <TamperSimulator2 setOriginalRootHash={setOriginalRootHash} />
         </div>
       </div>
     </div>
