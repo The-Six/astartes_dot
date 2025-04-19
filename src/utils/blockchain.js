@@ -100,3 +100,97 @@ export const storeLogHash = async (log) => {
     throw error;
   }
 };
+
+/**
+ * Retrieve input data for a user's account from the blockchain.
+ * @returns {Array} An array of objects containing block number, hash, block timestamp, and input data.
+ */
+export const getAccountInputData = async () => {
+  if (!provider) {
+    throw new Error("Provider not initialized");
+  }
+
+  try {
+    // Get signer address
+    const signer = await provider.getSigner();
+    const address = await signer.address;
+    console.log("User Account Address: ", address);
+
+    // Get hash (former extrinsics index) from Subscan API
+    const response = await fetch(
+      "https://assethub-westend.api.subscan.io/api/scan/evm/v2/transactions",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-API-Key": import.meta.env.VITE_SUBSCAN_API_KEY,
+        },
+        body: JSON.stringify({
+          address: address,
+          row: 5,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    // console.log("Subscan Response:", data);
+    const listOfHash = data.data.list;
+    // console.log("Hash Former Extrinsics:", listOfHash);
+    const allHash = [];
+    const allBlockTimestamp = [];
+    for (const item of listOfHash) {
+      allHash.push(item.hash);
+      allBlockTimestamp.push(item.block_timestamp);
+    }
+    // console.log("All Hashes:", allHash);
+    // console.log("All Block Timestamp:", allBlockTimestamp);
+
+    // Get Input Data from Subscan API
+    const allInputData = [];
+    const allBlockNum = [];
+    for (const hash of allHash) {
+      const response2 = await fetch(
+        "https://assethub-westend.api.subscan.io/api/scan/evm/transaction",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-API-Key": import.meta.env.VITE_SUBSCAN_API_KEY,
+          },
+          body: JSON.stringify({
+            hash: hash,
+          }),
+        }
+      );
+
+      if (!response2.ok) {
+        throw new Error(`HTTP error! status: ${response2.status}`);
+      }
+
+      const data2 = await response2.json();
+      // console.log("Subscan Response2:", data2);
+      allInputData.push(data2.data.input_data);
+      allBlockNum.push(data2.data.block_num);
+    }
+
+    // Return Output
+    const accountInputDataOutput = [];
+    for (let i = 0; i < allInputData.length; i++) {
+      accountInputDataOutput.push({
+        blockNum: allBlockNum[i],
+        hash: allHash[i],
+        blockTimestamp: allBlockTimestamp[i],
+        inputData: allInputData[i],
+      });
+    }
+    console.log("Account Input Data:", accountInputDataOutput);
+    return accountInputDataOutput;
+  } catch (error) {
+    console.error("Error retrieving input data:", error);
+    throw error;
+  }
+};
