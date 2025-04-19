@@ -3,6 +3,7 @@ import { FaDownLong } from "react-icons/fa6";
 import { generateLog } from "../utils/logSimulator";
 import { hashLog } from "../utils/hashing";
 import { storeLogHash } from "../utils/blockchain";
+import ServerIcon from "../components/ServerIcon";
 
 const SubmitLogHash = ({ originalRootHash }) => {
   const [log, setLog] = useState("");
@@ -42,8 +43,9 @@ const SubmitLogHash = ({ originalRootHash }) => {
   return (
     <div className="submit-log-hash-outer-container">
       <div className="submit-log-hash-container">
-        <div>
+        <div className="title-server-icon-container">
           <h2>Server A &#40;Source&#41;</h2>
+          <ServerIcon />
         </div>
         <div>
           <div
@@ -88,8 +90,9 @@ const SubmitLogHash = ({ originalRootHash }) => {
       <FaDownLong className="fa-down-long" />
 
       <div className="submit-log-hash-container2">
-        <div>
+        <div className="title-server-icon-container">
           <h2>Server B &#40;Publisher&#41;</h2>
+          <ServerIcon />
         </div>
         {hashReadyToServerBravo && (
           <p>Hash Ready To Send: {hashReadyToServerBravo}</p>

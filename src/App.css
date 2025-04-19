@@ -112,3 +112,54 @@ p {
 .titleAstartes {
   color: lightgreen;
 }
+
+.title-server-icon-container {
+  /* border: 1px solid #ccc; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 290px;
+}
+
+.server-icon-container {
+  margin-left: 1rem;
+}
+
+.server-icon {
+  width: 45px;
+  height: 14px;
+  background-color: black;
+  border-radius: 2px;
+  margin: 1px;
+}
+
+.server-icon div {
+  width: 5px;
+  height: 5px;
+  float: left;
+  margin-left: 5px;
+  margin-top: 5px;
+  background-color: lightgreen;
+  animation: pattern1 0.14s linear infinite;
+  -webkit-animation: pattern1 0.14s linear infinite;
+}
+
+@keyframes pattern1 {
+  0% {
+    background: rgba(149, 244, 118, 0.6);
+  }
+  100% {
+    background: rgba(149, 244, 118, 1);
+  }
+}
+
+@-webkit-keyframes pattern1 {
+  0% {
+    background: rgba(149, 244, 118, 0.6);
+  }
+  100% {
+    background: rgba(149, 244, 118, 1);
+  }
+}

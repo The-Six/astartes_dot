@@ -7,6 +7,7 @@ import OnChainDisplay from "./components/OnChainDisplay";
 import OffChainDisplay from "./components/OffChainDisplay";
 import RetrieveEvents from "./components/RetrieveEvents";
 import SubmitLogHash from "./components/SubmitLogHash";
+import ServerIcon from "./components/ServerIcon";
 import {
   connectToBlockchain,
   initializeContract,
@@ -144,8 +145,9 @@ function App() {
       </div>
       <div style={isVerifier ? { display: "none" } : { display: "block" }}>
         <div className="server-charlie-container">
-          <div>
+          <div className="title-server-icon-container">
             <h2>Server C &#40;Verifier&#41;</h2>
+            <ServerIcon />
           </div>
           <div className="feature-display-out-container">
             <div className="feature-outer-container">
