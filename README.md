@@ -43,11 +43,22 @@ Astartes can operate independently or complement other systems like centralized 
 
 ### Images
 
-<img width="1512" alt="img1" src="">
-<img width="1512" alt="img2" src="">
-<img width="1511" alt="img3" src="">
-<img width="1512" alt="img4" src="">
-<img width="1512" alt="img5" src="">
+- Server A (Source) has sent merkle hash to Server B (Publisher), which is now ready to anchor on-chain
+  <img width="1512" alt="img1" src="./src/assets/screenshot1.png">
+- Server C (Verifier) that is comparing tampered off-chain data and on-chain data
+  <img width="1512" alt="img2" src="./src/assets/screenshot2.png">
+- Merkle Tree that reads the logs showing tree depth, levels and nodes
+  <img width="1511" alt="img3" src="./src/assets/screenshot3.png">
+- A log that is tampered in the Merkle Tree is highlighted in red
+  <img width="1512" alt="img4" src="./src/assets/screenshot4.png">
+- An actual Merkle Tree is generated in the terminal by running `node scripts/MerkleTreeScript.js`
+  <img width="1512" alt="img5" src="./src/assets/screenshot5.png">
+- Smart contract is created using remix.polkadot.io
+  <img width="1512" alt="img6" src="./src/assets/screenshot6.png">
+- Transaction request pops up when submitting merkle hash to blockchain
+  <img width="1512" alt="img7" src="./src/assets/screenshot7.png">
+- Transaction mined
+  <img width="1512" alt="img8" src="./src/assets/screenshot8.png">
 
 ### Roadmap
 
