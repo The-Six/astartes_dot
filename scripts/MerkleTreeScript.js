@@ -30,16 +30,56 @@ const getMacSecurityLogs = () => {
 
 // Function to create a Merkle tree from logs
 export const createMerkleTree = (logs) => {
-    // Hash each log entry using SHA-256
-    const hashedLogs = logs.map((log) =>
-      CryptoJS.SHA256(log).toString(CryptoJS.enc.Hex)
-    );
-  
-    // Create the Merkle tree
-    const tree = new MerkleTree(hashedLogs, keccak256, { sortPairs: true });
-  
-    // Get the Merkle root
-    const root = tree.getHexRoot();
-  
-    return { tree, root };
-  };
+  // Hash each log entry using SHA-256
+  const hashedLogs = logs.map((log) =>
+    CryptoJS.SHA256(log).toString(CryptoJS.enc.Hex)
+  );
+
+  // Create the Merkle tree
+  const tree = new MerkleTree(hashedLogs, keccak256, { sortPairs: true });
+
+  // Get the Merkle root
+  const root = tree.getHexRoot();
+
+  return { tree, root };
+};
+
+// Main function
+const main = () => {
+  console.log("Fetching macOS security logs...");
+  const logs = getMacSecurityLogs();
+
+  if (logs.length === 0) {
+    console.error("No logs found.");
+    return;
+  }
+
+  console.log(`Fetched ${logs.length} log entries.`);
+
+  // Save the logs to a file for reuse
+  const logFilePath = path.join(__dirname, "logs.json");
+  writeFileSync(logFilePath, JSON.stringify(logs, null, 2));
+  console.log(`Logs saved to: ${logFilePath}`);
+
+  console.log("Creating Merkle tree...");
+  //   const { root } = createMerkleTree(logs);
+
+  //   console.log("Merkle tree created.");
+  //   console.log("Merkle Root Hash:", root);
+
+  // Uncomment the following lines to visualize the Merkle tree
+  const { tree, root } = createMerkleTree(logs);
+
+  console.log("Merkle tree created.");
+  console.log("Merkle Root Hash:", root);
+
+  console.log("\nMerkle Tree:");
+  console.log(tree.toString());
+  //END
+
+  // Return the root hash for further use (e.g., storing on the blockchain)
+  return root;
+};
+
+// Run the script
+main();
