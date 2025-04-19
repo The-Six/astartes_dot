@@ -61,18 +61,15 @@ export const initializeContract = (provider) => {
  * Store a log hash on the blockchain.
  * @param {string} log - The log to hash and store.
  */
-export const storeLogHash = async (log) => {
+export const storeLogHash = async (hash) => {
   if (!provider) {
     throw new Error("Provider not initialized");
   }
 
-  console.log(`Storing log on-chain via smart contract: ${log}`);
+  console.log(`Storing log on-chain via smart contract: ${hash}`);
 
   try {
-    // Hash the log to produce a 32-byte value
-    // const hash = keccak256(toUtf8Bytes(log));
-    const hash = log;
-    console.log("Hashed log:", hash);
+    // console.log("Hash Ready To Send:", hash);
 
     // Reinitialize the contract with a fresh signer
     const signer = await provider.getSigner();
