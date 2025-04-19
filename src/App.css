@@ -9,6 +9,11 @@ p {
   font-size: 0.7rem;
 }
 
+select {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
 .App {
   border: 8px solid #000;
   box-shadow: 35px -35px lightgreen;

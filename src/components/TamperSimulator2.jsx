@@ -15,6 +15,7 @@ const TamperSimulator2 = ({ setOriginalRootHash }) => {
   // const [proofPath, setProofPath] = useState([]);
   const [tamperedTreeInfo, setTamperedTreeInfo] = useState(null);
   const [expandedLevels, setExpandedLevels] = useState({}); // Track open/close state for levels
+  const [isTamperButtonClicked, setIsTamperButtonClicked] = useState(false);
 
   useEffect(() => {
     initializeTree();
@@ -94,6 +95,9 @@ const TamperSimulator2 = ({ setOriginalRootHash }) => {
 
     console.log("Tampered log index:", index);
     console.log("New tampered root hash:", tamperedRootHash);
+
+    // Set isTamperButtonClicked to true to change the log to red color
+    setIsTamperButtonClicked(true);
   };
 
   // Function to initialize the Merkle tree
@@ -119,6 +123,12 @@ const TamperSimulator2 = ({ setOriginalRootHash }) => {
 
     // Set original root hash and use it in Server Alpha
     setOriginalRootHash(root);
+
+    // Set isTamperButtonClicked to false to change the log to white color
+    setIsTamperButtonClicked(false);
+
+    // Set tamperedIndex to null to reset the tampered log
+    setTamperedIndex(null);
   };
 
   // Function to calculate and display tampered tree info
@@ -202,7 +212,12 @@ const TamperSimulator2 = ({ setOriginalRootHash }) => {
                     <div
                       key={nodeIndex}
                       style={{
-                        color: isTampered ? "red" : "white",
+                        color:
+                          isTamperButtonClicked && isTampered
+                            ? "red"
+                            : isTampered
+                            ? "lightgreen"
+                            : "white",
                         marginBottom: "5px",
                       }}
                     >
@@ -249,7 +264,7 @@ const TamperSimulator2 = ({ setOriginalRootHash }) => {
             value={tamperedIndex || ""}
           >
             <option value="" disabled>
-              Select a log to tamper
+              Select a Log to Tamper
             </option>
             {logs.map((log, index) => (
               <option key={index} value={index}>
