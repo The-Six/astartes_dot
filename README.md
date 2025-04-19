@@ -24,8 +24,9 @@ Astartes can operate independently or complement other systems like centralized 
 
 ### Features
 
-- **Centralised Verification (Server C):** Aggregates Merkle roots, verifies consistency, and optionally challenges Server A and B for tamper detection.
-- **Blockchain Anchoring (Server B):** Publishes a super Merkle root to a low-fee chain (Polkadot Asset Hub) to create a tamper-evident audit trail.
+- **Local Hashing (Server A - Source):** Collects logs and builds Merkle Trees at the endpoint, sending roots for anchoring and verification to ensure tamper-evident integrity.
+- **Blockchain Anchoring (Server B - Publisher):** Publishes a super Merkle root to a low-fee chain (Polkadot Asset Hub) to create a tamper-evident audit trail.
+- **Centralised Verification (Server C - Verifier):** Aggregates Merkle roots, verifies consistency and challenges Server A and B for tamper detection.
 - **Merkle Tree Integrity Checks:** Enables pinpoint detection of altered logs down to individual entries through cryptographic proofs.
 - **Anchoring Flexibility:** Supports daily or hourly anchoring, balancing cost with forensic granularity.
 - **Modular Architecture:** Can run on AWS (Lambda, EC2, Fargate) or on-premises infrastructure with minimal integration friction.
@@ -34,7 +35,7 @@ Astartes can operate independently or complement other systems like centralized 
 
 ### Technical Architecture
 
-<img src="./src/assets/astartes3.jpg" width="400" alt="Astartes.Dot"/>
+<img src="./src/assets/astartes4.jpg" width="400" alt="Astartes.Dot"/>
 
 ### Demo
 
@@ -60,6 +61,7 @@ Astartes can operate independently or complement other systems like centralized 
 - [x] Visualize Merkle Tree and logs in live UI demo
 - [x] Display side-by-side on-chain and off-chain state in frontend
 - [ ] Automate interval-based Merkle root generation on Server A
+- [ ] Automate Server B anchoring process (e.g., daily, hourly)
 - [ ] Automate Server C challenge routine (e.g., 5-min for A, hourly for B)
 - [ ] Add basic metrics dashboard for alert tracking and verification health
 - [ ] Secure Server A–B–C communication using cryptographic signatures
