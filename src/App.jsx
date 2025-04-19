@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import TamperSimulator from "./components/TamperSimulator";
+import TamperSimulator2 from "./components/TamperSimulator2";
 import VerifyLog from "./components/VerifyLog";
 import OnChainDisplay from "./components/OnChainDisplay";
 import OffChainDisplay from "./components/OffChainDisplay";
@@ -18,6 +19,7 @@ function App() {
   const [offchainData, setOffchainData] = useState([]);
   const [verifyClicked, setVerifyClicked] = useState(false);
   const [randomNumArray, setRandomNumArray] = useState([]);
+  // const [originalRootHash, setOriginalRootHash] = useState("");
 
   useEffect(() => {
     const setup = async () => {
@@ -144,6 +146,9 @@ function App() {
               <OnChainDisplay data={onchainData} />
             </div>
           </div>
+        </div>
+        <div className="merkle-tree-container">
+          <TamperSimulator2 />
         </div>
       </div>
     </div>

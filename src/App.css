@@ -61,3 +61,10 @@ p {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.merkle-tree-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
