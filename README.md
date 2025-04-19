@@ -90,6 +90,6 @@ Transaction mined
 
 ### Attribution & Research
 
-<a type="application/pdf" href="./src/assets/Towards_an_Open_and_Scalable_Security_Layer.pdf" target="_blank">Towards an Open and Scalable Security Layer</a>
+[Towards an Open and Scalable Security Layer](./src/assets/Towards_an_Open_and_Scalable_Security_Layer.pdf)
 
 ## Contributing & License
