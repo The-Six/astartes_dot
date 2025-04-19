@@ -5,9 +5,9 @@
 </p>
 <p align="center"><strong style="font-size: 24px;">"Tamper-Evident Logging for Zero-Trust Infrastructure"</strong></p>
 <p align="center" style="display: flex; justify-content: center; align-items: center;">
-    <span style="display: inline-flex; align-items: center; background-color: #1c1c1c; padding: 5px; border-radius: 6px;">
-        <a href="https://www.easya.io/">
-            <img src="https://github.com/user-attachments/assets/09cfc307-f04f-4225-8c3b-bc96c47583a6" alt="EasyA" style="height: 21px;"/>
+    <span style="display: inline-flex; align-items: center; background-color: #fff; padding: 5px; border-radius: 6px;">
+        <a href="https://polkadot.com/">
+            <img src="./src/assets/polkadot-logo.png" alt="Polkadot" style="height: 40px;"/>
         </a>
     </span>
 </p>
