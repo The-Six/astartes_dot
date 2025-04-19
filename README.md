@@ -1,6 +1,6 @@
 <p align="center">
 <br />
-    <img src="/Users/ijazdriscoll/Coding/astartes_dot/src/assets/astartes.jpg" width="400" alt="Astartes.Dot"/>
+    <img src="./src/assets/astartes.jpg" width="400" alt="Astartes.Dot"/>
 <br />
 </p>
 <p align="center"><strong style="font-size: 24px;">"Tamper-Evident Logging for Zero-Trust Infrastructure"</strong></p>
@@ -34,7 +34,7 @@ Astartes can operate independently or complement other systems like centralized 
 
 ### Technical Architecture
 
-<img src="/Users/ijazdriscoll/Coding/astartes_dot/src/assets/astartes3.jpg" width="400" alt="Astartes.Dot"/>
+<img src="./src/assets/astartes3.jpg" width="400" alt="Astartes.Dot"/>
 
 ### Demo
 
