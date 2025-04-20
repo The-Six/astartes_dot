@@ -39,7 +39,7 @@ Astartes can operate independently or complement other systems like centralized 
 
 ### Demo
 
-- [Demo v1 ](https://youtu.be/4yKBpcuvAyg)(20 April 2025)
+- [Demo v1 ](https://youtu.be/LwBXunE7pZc)(20 April 2025)
 
 ### Images
 
