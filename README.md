@@ -46,10 +46,10 @@ Astartes can operate independently or complement other systems like centralized 
 Server A (Source) has sent merkle hash to Server B (Publisher), which is now ready to anchor on-chain
 <img width="1512" alt="img1" src="./src/assets/screenshot1.png">
 
-Server C (Verifier) that is comparing tampered off-chain data and on-chain data
+Server C (Verifier) compares tampered off-chain data and on-chain data
 <img width="1512" alt="img2" src="./src/assets/screenshot2.png">
 
-Merkle Tree that reads the logs showing tree depth, levels and nodes
+Merkle Tree represents logs; showing tree depth, levels and nodes
 <img width="1511" alt="img3" src="./src/assets/screenshot3.png">
 
 A log that is tampered in the Merkle Tree is highlighted in red
@@ -61,7 +61,7 @@ An actual Merkle Tree is generated in the terminal by running `node scripts/Merk
 Smart contract is created using remix.polkadot.io
 <img width="1512" alt="img6" src="./src/assets/screenshot6.png">
 
-Transaction request pops up when submitting merkle hash to blockchain
+Transaction request pops up when submitting merkle root hash to blockchain
 <img width="1512" alt="img7" src="./src/assets/screenshot7.png">
 
 Transaction mined
@@ -76,7 +76,7 @@ Transaction mined
 - [x] Send Merkle root from Server A to Server C for verification
 - [x] Compare Merkle roots from Server A and on-chain data in Server C
 - [x] Trigger real-time alert in UI upon detection of tampering
-- [x] Visualize Merkle Tree and logs in live UI demo
+- [x] Visualize Merkle Tree and logs in live UI demo; demonstarting forensic advantage
 - [x] Display side-by-side on-chain and off-chain state in frontend
 - [ ] Automate interval-based Merkle root generation on Server A
 - [ ] Automate Server B anchoring process (e.g., daily, hourly)
